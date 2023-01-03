@@ -1,11 +1,13 @@
 package kata5p1;
 
+import java.util.List;
+
 public class Kata5P1 {
 
     public static void main(String[] args) {
-        String url = "jdbc:sqlite:email.db";
+        List<String> mailList = MailListReader.read("email.txt");
 
-        CrearBD.createNewDataBase(url);
-        CrearTabla.createNewTable(url);
+        InsertarDatosTabla idt = new InsertarDatosTabla();
+        idt.insert(mailList);
     }
 }
